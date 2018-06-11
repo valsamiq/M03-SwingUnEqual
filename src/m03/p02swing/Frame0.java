@@ -15,14 +15,14 @@ import static m03.p02swing.M03P02Swing.infos;
 public class Frame0 extends javax.swing.JFrame {
 
     int contador = 0;
-    
+
     /**
      * Creates new form Frame0
      */
-    
     public Frame0() {
         initComponents();
         Item i = new Item(0, "", "", "", 0.0, 0.0, 0);
+        items.add(i);
         infos.add(i);
         jLabel27.setText(Integer.toString(infos.get(contador).getCode()));
         jLabel28.setText(infos.get(contador).getDesc());
@@ -45,6 +45,7 @@ public class Frame0 extends javax.swing.JFrame {
 //        initComponents();
 //
 //    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -99,15 +100,12 @@ public class Frame0 extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        jSpinner6 = new javax.swing.JSpinner();
-        jLabel38 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -122,8 +120,6 @@ public class Frame0 extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jSpinner5 = new javax.swing.JSpinner();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
@@ -399,15 +395,11 @@ public class Frame0 extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
                             .addComponent(jLabel24))
-                        .addGap(0, 56, Short.MAX_VALUE)))
+                        .addGap(0, 119, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         jLabel17.setText("Avialiable Items:");
-
-        jList1.setModel(new javax.swing.DefaultComboBoxModel(M03P02Swing.items.toArray()));
-        jList1.setToolTipText("");
-        jScrollPane2.setViewportView(jList1);
 
         jButton7.setText("View Selected Item");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -437,9 +429,12 @@ public class Frame0 extends javax.swing.JFrame {
             }
         });
 
-        jSpinner6.setModel(new javax.swing.SpinnerNumberModel());
-
-        jLabel38.setText("Auxiliar: (no funciona desde jList)");
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox4ItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -450,22 +445,18 @@ public class Frame0 extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton9))
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton9))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel38)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(73, 73, 73)
+                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -473,7 +464,7 @@ public class Frame0 extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton8))
                             .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,16 +477,11 @@ public class Frame0 extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addComponent(jButton9))
                 .addGap(17, 17, 17)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel38)
-                            .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -543,10 +529,6 @@ public class Frame0 extends javax.swing.JFrame {
         jLabel31.setText("null");
 
         jLabel33.setText("null");
-
-        jLabel10.setText("Codigo: (campo auxiliar, no ofunciona desde Combobox)");
-
-        jSpinner5.setModel(new javax.swing.SpinnerNumberModel());
 
         jLabel35.setText("Current Item Status:");
 
@@ -597,11 +579,8 @@ public class Frame0 extends javax.swing.JFrame {
                                     .addComponent(jLabel31))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                .addGap(161, 161, 161)
+                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -618,11 +597,7 @@ public class Frame0 extends javax.swing.JFrame {
                     .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4)
                     .addComponent(jButton2))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(106, 106, 106)
                 .addComponent(jLabel35)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -638,7 +613,7 @@ public class Frame0 extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
                     .addComponent(jLabel37))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Sell/Buy Item", jPanel4);
@@ -668,7 +643,7 @@ public class Frame0 extends javax.swing.JFrame {
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         //I need this to avoid some troubles while running...
 
-        
+
     }//GEN-LAST:event_formComponentShown
 
     private void jTabbedPane1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTabbedPane1ComponentShown
@@ -684,11 +659,12 @@ public class Frame0 extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel4ComponentShown
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int selValue = Integer.parseInt((String)jComboBox6.getSelectedItem());
         int tmp = (int) jSpinner4.getValue();
         for (Item i : items) {
-            if (jSpinner5.getValue() == i.getCode()) {
+            if (selValue== i.getCode()) {
                 if (tmp > i.getQty()) {
-                    JOptionPane.showMessageDialog(this, "No stock enough", "Retry", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "No stock enough, dude", "Retry", JOptionPane.ERROR_MESSAGE);
                     jLabel33.setText("" + i.getCode());
                     jLabel12.setText("" + i.getQty());
                     jLabel31.setText("" + i.getPvp());
@@ -706,7 +682,10 @@ public class Frame0 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jPanel3ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel3ComponentShown
-
+        jComboBox4.removeAllItems();
+        for (Item i : items) {
+            jComboBox4.addItem("" + i.getCode());
+        }
         jComboBox2.removeAllItems();
         for (Item i : items) {
             jComboBox2.addItem("" + i.getColor());
@@ -716,13 +695,13 @@ public class Frame0 extends javax.swing.JFrame {
             jComboBox3.addItem("" + i.getSize());
         }
         //Search Both - Tab View Items
-        jList1.removeAll();
-        jList1.setModel(new javax.swing.DefaultComboBoxModel(M03P02Swing.infos.toArray()));
+//        jList1.removeAll();
+//        jList1.setModel(new javax.swing.DefaultComboBoxModel(M03P02Swing.infos.toArray()));
         // contador a 0
         // mostrar primer item
         // botón anterior desactivado
         // if size>contador botón siguiente activado
-        contador=0;
+        contador = 0;
         jLabel27.setText(Integer.toString(infos.get(contador).getCode()));
         jLabel28.setText(infos.get(contador).getDesc());
         jLabel25.setText(infos.get(contador).getColor());
@@ -737,27 +716,60 @@ public class Frame0 extends javax.swing.JFrame {
             jButton6.setEnabled(false);
             jButton5.setEnabled(false);
         } else if (infos.size() > 1) {
-            jButton6.setEnabled(true);
+            jButton5.setEnabled(true);
         }
-        
     }//GEN-LAST:event_jPanel3ComponentShown
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         //Search Both - Tab View Items
         infos.clear();
-        jList1.removeAll();
-
+        //jList1.removeAll();
+        jComboBox4.removeAllItems();
+        contador=0;
         for (Item i : items) {
-            if (i.getColor().equals(jComboBox2.getSelectedItem()) && i.getSize().equals(jComboBox3.getSelectedItem())) {
-                infos.add(i);
+                if (i.getColor().equals(jComboBox2.getSelectedItem()) && i.getSize().equals(jComboBox3.getSelectedItem())) {
+                    infos.add(i);
+                }
             }
+//        if (!jComboBox2.equals("") && jComboBox3.equals("")) {
+//            //search by color.
+//            for (Item i : items) {
+//                if (i.getSize().equals(jComboBox2.getSelectedItem())) {
+//                    infos.add(i);
+//                }
+//            }
+//        } else if (!jComboBox3.equals("") && jComboBox2.equals("")) {
+//            //search by size.
+//            for (Item i : items) {
+//                if (i.getSize().equals(jComboBox3.getSelectedItem())) {
+//                    infos.add(i);
+//                }
+//            }
+//        } else if (!jComboBox3.equals("") && !jComboBox2.equals("")) {
+//            //search by size and color.
+//            for (Item i : items) {
+//                if (i.getColor().equals(jComboBox2.getSelectedItem()) && i.getSize().equals(jComboBox3.getSelectedItem())) {
+//                    infos.add(i);
+//                }
+//            }
+//        } else {
+//            for (Item i : items) {
+//                infos.add(i);
+//            }
+//        }
+        for (Item i : infos) {
+            jComboBox4.addItem("" + i.getCode());
         }
-        jList1.setModel(new javax.swing.DefaultComboBoxModel(M03P02Swing.infos.toArray()));
+        if (infos.size() == 1) {
+            jButton6.setEnabled(false);
+            jButton5.setEnabled(false);
+        } else if (infos.size() > 1) {
+            jButton6.setEnabled(true);
+        }
+        //jList1.setModel(new javax.swing.DefaultComboBoxModel(M03P02Swing.infos.toArray()));
     }//GEN-LAST:event_jButton8ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Proceed Button. By clicking it, it checks, write and clean the fields.
-
         int cod = -1;
         //Section to check every field, and then the values are transfered to each new variable
         int codTmp = (int) jSpinner1.getValue();
@@ -774,15 +786,12 @@ public class Frame0 extends javax.swing.JFrame {
             //jSpinner2.setValue(0.1);
             Double pvp = (Double) jSpinner3.getValue();
             //jSpinner3.setValue(0);
-
             //Quantity = 0, b/c we don't have it yet.
             int qty = 0;
-
             //Then, saves in Array.
             Item i = new Item(cod, col, siz, des, pve, pvp, qty);
             infos.add(i);
             items.add(i);
-
             //That's a message for me, developer's things, you know...
             //JOptionPane.showMessageDialog(this, cod + col + siz + des + pve + pvp + qty);
         } else {
@@ -792,35 +801,56 @@ public class Frame0 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        //Search by Size - Tab View Items
+//        //Search by Size - Tab View Items
         infos.clear();
-        jList1.removeAll();
-
+        //jList1.removeAll();
+        jComboBox4.removeAllItems();
+        contador=0;
         for (Item i : items) {
             if (i.getSize().equals(jComboBox3.getSelectedItem())) {
                 infos.add(i);
             }
         }
-        jList1.setModel(new javax.swing.DefaultComboBoxModel(M03P02Swing.infos.toArray()));
+        for (Item i : infos) {
+            jComboBox4.addItem("" + i.getCode());
+        }
+        if (infos.size() == 1) {
+            jButton6.setEnabled(false);
+            jButton5.setEnabled(false);
+        } else if (infos.size() > 1) {
+            jButton6.setEnabled(true);
+        }
+//        jList1.setModel(new javax.swing.DefaultComboBoxModel(M03P02Swing.infos.toArray()));
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //Search by Color - Tab View Items
+//        //Search by Color - Tab View Items
         infos.clear();
-        jList1.removeAll();
-
+       // jList1.removeAll();
+       jComboBox4.removeAllItems();
+       contador=0;
         for (Item i : items) {
             if (i.getColor().equals(jComboBox2.getSelectedItem())) {
                 infos.add(i);
             }
         }
-        jList1.setModel(new javax.swing.DefaultComboBoxModel(M03P02Swing.infos.toArray()));
+        for (Item i : infos) {
+            jComboBox4.addItem("" + i.getCode());
+        }
+        if (infos.size() == 1) {
+            jButton6.setEnabled(false);
+            jButton5.setEnabled(false);
+        } else if (infos.size() > 1) {
+            jButton6.setEnabled(true);
+        }
+//        jList1.setModel(new javax.swing.DefaultComboBoxModel(M03P02Swing.infos.toArray()));
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        int selValue = Integer.parseInt((String)jComboBox4.getSelectedItem());
         for (Item i : items) {
             //int code= Integer.parseInt(jList1.getSelectedValue());
-            if (jSpinner6.getValue() == (i.getCode())) {
+            if (selValue== (i.getCode())) {
                 jLabel27.setText("" + i.getCode());
                 jLabel26.setText(i.getSize());
                 jLabel25.setText(i.getColor());
@@ -832,20 +862,18 @@ public class Frame0 extends javax.swing.JFrame {
                 jLabel41.setText("" + totalPvp);
                 double totalPve = i.getPvp() * i.getQty();
                 jLabel42.setText("" + totalPve);
-
             }
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Buy Option - Tab Buy/Sell
+        int selValue = Integer.parseInt((String)jComboBox6.getSelectedItem());
         int tmp = (int) jSpinner4.getValue();
-
         for (Item i : items) {
-            if (jSpinner5.getValue() == i.getCode()) {
+            if (selValue== i.getCode()) {
                 i.setQty(i.getQty() + tmp);
                 JOptionPane.showMessageDialog(this, "Transaction Complete!", "Success", JOptionPane.OK_OPTION);
-
                 jLabel33.setText("" + i.getCode());
                 jLabel12.setText("" + i.getQty());
                 jLabel31.setText("" + i.getPvp());
@@ -855,61 +883,61 @@ public class Frame0 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       if (contador < items.size() - 1) {
+        if (contador < infos.size() - 1) {
             contador++;
-            jLabel27.setText(Integer.toString(items.get(contador).getCode()));
-            jLabel28.setText(items.get(contador).getDesc());
-            jLabel25.setText(items.get(contador).getColor());
-            jLabel26.setText(items.get(contador).getSize());
-            jLabel23.setText(Double.toString(items.get(contador).getPve()));
-            jLabel24.setText(Integer.toString(items.get(contador).getQty()));
-            jLabel41.setText(Double.toString(items.get(contador).getPvp()));
-            Double totPvp = items.get(contador).getPvp() * items.get(contador).getQty();
+            jLabel27.setText(Integer.toString(infos.get(contador).getCode()));
+            jLabel28.setText(infos.get(contador).getDesc());
+            jLabel25.setText(infos.get(contador).getColor());
+            jLabel26.setText(infos.get(contador).getSize());
+            jLabel23.setText(Double.toString(infos.get(contador).getPve()));
+            jLabel24.setText(Integer.toString(infos.get(contador).getQty()));
+            jLabel41.setText(Double.toString(infos.get(contador).getPvp()));
+            Double totPvp = infos.get(contador).getPvp() * infos.get(contador).getQty();
             jLabel42.setText(Double.toString(totPvp));
-        } else if (contador == items.size()) {
-            jLabel27.setText(Integer.toString(items.get(contador).getCode()));
-            jLabel28.setText(items.get(contador).getDesc());
-            jLabel25.setText(items.get(contador).getColor());
-            jLabel26.setText(items.get(contador).getSize());
-            jLabel23.setText(Double.toString(items.get(contador).getPve()));
-            jLabel24.setText(Integer.toString(items.get(contador).getQty()));
-            jLabel41.setText(Double.toString(items.get(contador).getPvp()));
-            Double totPvp = items.get(contador).getPvp() * items.get(contador).getQty();
+        } else if (contador == infos.size()) {
+            jLabel27.setText(Integer.toString(infos.get(contador).getCode()));
+            jLabel28.setText(infos.get(contador).getDesc());
+            jLabel25.setText(infos.get(contador).getColor());
+            jLabel26.setText(infos.get(contador).getSize());
+            jLabel23.setText(Double.toString(infos.get(contador).getPve()));
+            jLabel24.setText(Integer.toString(infos.get(contador).getQty()));
+            jLabel41.setText(Double.toString(infos.get(contador).getPvp()));
+            Double totPvp = infos.get(contador).getPvp() * infos.get(contador).getQty();
             jLabel42.setText(Double.toString(totPvp));
         }
-        if (contador > 0 && contador < items.size() - 1) {
+        if (contador > 0 && contador < infos.size() - 1) {
             jButton6.setEnabled(true);
             jButton5.setEnabled(true);
-        } else if (contador == items.size() - 1) {
+        } else if (contador == infos.size() - 1) {
             jButton6.setEnabled(true);
             jButton5.setEnabled(false);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-         if (contador > 0) {
+        if (contador > 0) {
             contador--;
-            jLabel27.setText(Integer.toString(items.get(contador).getCode()));
-            jLabel28.setText(items.get(contador).getDesc());
-            jLabel25.setText(items.get(contador).getColor());
-            jLabel26.setText(items.get(contador).getSize());
-            jLabel23.setText(Double.toString(items.get(contador).getPve()));
-            jLabel24.setText(Integer.toString(items.get(contador).getQty()));
-            jLabel41.setText(Double.toString(items.get(contador).getPvp()));
-            Double totPvp = items.get(contador).getPvp() * items.get(contador).getQty();
+            jLabel27.setText(Integer.toString(infos.get(contador).getCode()));
+            jLabel28.setText(infos.get(contador).getDesc());
+            jLabel25.setText(infos.get(contador).getColor());
+            jLabel26.setText(infos.get(contador).getSize());
+            jLabel23.setText(Double.toString(infos.get(contador).getPve()));
+            jLabel24.setText(Integer.toString(infos.get(contador).getQty()));
+            jLabel41.setText(Double.toString(infos.get(contador).getPvp()));
+            Double totPvp = infos.get(contador).getPvp() * infos.get(contador).getQty();
             jLabel42.setText(Double.toString(totPvp));
         } else if (contador == 0) {
-            jLabel27.setText(Integer.toString(items.get(contador).getCode()));
-            jLabel28.setText(items.get(contador).getDesc());
-            jLabel25.setText(items.get(contador).getColor());
-            jLabel26.setText(items.get(contador).getSize());
-            jLabel23.setText(Double.toString(items.get(contador).getPve()));
-            jLabel24.setText(Integer.toString(items.get(contador).getQty()));
-            jLabel41.setText(Double.toString(items.get(contador).getPvp()));
-            Double totPvp = items.get(contador).getPvp() * items.get(contador).getQty();
+            jLabel27.setText(Integer.toString(infos.get(contador).getCode()));
+            jLabel28.setText(infos.get(contador).getDesc());
+            jLabel25.setText(infos.get(contador).getColor());
+            jLabel26.setText(infos.get(contador).getSize());
+            jLabel23.setText(Double.toString(infos.get(contador).getPve()));
+            jLabel24.setText(Integer.toString(infos.get(contador).getQty()));
+            jLabel41.setText(Double.toString(infos.get(contador).getPvp()));
+            Double totPvp = infos.get(contador).getPvp() * infos.get(contador).getQty();
             jLabel42.setText(Double.toString(totPvp));
         }
-        if (contador > 0 && contador < items.size() - 1) {
+        if (contador > 0 && contador < infos.size() - 1) {
             jButton6.setEnabled(true);
             jButton5.setEnabled(true);
         } else if (contador == 0) {
@@ -917,7 +945,31 @@ public class Frame0 extends javax.swing.JFrame {
             jButton5.setEnabled(true);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
+        //Combo dynamic
+        //Al seleccionar color, showit
+//        jComboBox4.removeAllItems();
+//        for (Item i : infos) {
+//            jComboBox4.addItem("" + i.getCode());
+//        }
+        for (Item i : items) {
+            if (i.equals(jComboBox4.getSelectedItem())) {
+                jLabel27.setText(Integer.toString(i.getCode()));
+                jLabel28.setText(i.getDesc());
+                jLabel25.setText(i.getColor());
+                jLabel26.setText(i.getSize());
+                jLabel23.setText(Double.toString(i.getPve()));
+                jLabel24.setText(Integer.toString(i.getQty()));
+                jLabel41.setText(Double.toString(i.getPvp()));
+                Double totPvp = i.getPvp() * i.getQty();
+                jLabel42.setText(Double.toString(totPvp));
+            }
+        }
+
+    }//GEN-LAST:event_jComboBox4ItemStateChanged
     /*    jList1.removeAll();
+    
     
     jList1.setModel(new javax.swing.DefaultComboBoxModel(M03P02Swing.items.toArray()));
      */
@@ -984,10 +1036,10 @@ public class Frame0 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -1017,7 +1069,6 @@ public class Frame0 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
@@ -1028,21 +1079,17 @@ public class Frame0 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JSpinner jSpinner4;
-    private javax.swing.JSpinner jSpinner5;
-    private javax.swing.JSpinner jSpinner6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
